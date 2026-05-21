@@ -20,3 +20,14 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- task: SonarScanner@1
+  inputs:
+    version: '4.8.0.2856'
+    configMode: 'manual'
+    projectVersion: '1.0'
+    sources: 'src'
+    extraProperties: |
+      # Write your additional sonar-scanner properties here.
+      
+      sonar.exclusions=**\tests
